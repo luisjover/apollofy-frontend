@@ -25,7 +25,7 @@ albums, playlists and artist while giving us the opportunity of adding our own t
 * Done with React and TypeScript, aside from other different libraries like react-hook-form, react-loading-skeleton...
 * Auth0 for authentication and Cloudinary for image and audio storage.
 
-<a>Click here to see  video demonstration of the app</a>
+<a href="https://drive.google.com/file/d/1rs4g8KltTViM1sAjnO8LtP6VqGAi1GhY/view?usp=sharing">Click here to see  video demonstration of the app</a>
 
 ## Technologies
 - HTML
