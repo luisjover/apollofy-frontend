@@ -35,6 +35,9 @@ albums, playlists and artist while giving us the opportunity of adding our own t
 - Auth0
 - Cloudinary
 - AntDesign
+- Figma
+* This is the design that was done with Figma:
+  ![Screenshot 2023-10-17 at 06 12 53](https://github.com/ali-hourag/Apollofy-Hamilton/assets/131694498/51ef88b2-bf8c-49c9-abd9-64b8795d72c4)
 
 
 ## Setup
