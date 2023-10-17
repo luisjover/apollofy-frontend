@@ -67,9 +67,6 @@ export const AddMusicForm = () => {
 
                 const trackAudioFile = audio;
                 const trackImgFile = image;
-                console.log(trackAudioFile);
-                console.log("-+-+-+-+-++-+-++-++");
-                console.log(trackImgFile);
                 const formTrackData: FormTrackDataType = {
                     audio: trackAudioFile,
                     image: trackImgFile,
@@ -146,7 +143,6 @@ export const AddMusicForm = () => {
         if (image) {
             reader.onloadend = () => {
                 const base64String = (reader.result as string).replace('data:', '').replace(/^.+,/, '');
-                // console.log(base64String);
                 setImage(base64String)
             }
             reader.readAsDataURL(image)
@@ -160,7 +156,6 @@ export const AddMusicForm = () => {
         if (audio) {
             reader.onloadend = () => {
                 const base64String = (reader.result as string).replace('data:', '').replace(/^.+,/, '');
-                // console.log(base64String);
                 setAudio(base64String)
             }
             reader.readAsDataURL(audio)
