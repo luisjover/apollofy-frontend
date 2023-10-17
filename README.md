@@ -20,7 +20,7 @@
 Apollofy project is an app that resembles Spotify and Soundcloud, since it enables us to navigate though different songs,
 albums, playlists and artist while giving us the opportunity of adding our own tracks or albums.
 <br/>
-* Complex architecture consisting on 2 databases, one done with PostgreSQL that stores different stats and another one the app data with MongoDB.
+* Complex architecture consisting on 2 databases, one done with <a href="https://github.com/ali-hourag/apollofy_hamilton_back">MongoDB</a> that stores different the app data and another one that keeps different stats with <a href="https://github.com/ali-hourag/apollofy_stats_back">PostgreSQL</a> .
 * It can be used in spanish or english (i18next library).
 * Done with React and TypeScript, aside from other different libraries like react-hook-form, react-loading-skeleton...
 * Auth0 for authentication and Cloudinary for image and audio storage.
