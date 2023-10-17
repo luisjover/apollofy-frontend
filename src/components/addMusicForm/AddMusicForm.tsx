@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
-import { useState } from "react"
-import { postTrack } from "../../api/fetchApi"
+import { useEffect, useState } from "react"
+import { TrackPosted, postTrack } from "../../api/fetchApi"
 import { useAuth0 } from "@auth0/auth0-react"
 import "./addMusicForm.css"
 import placeholder from '../../assets/img/bg-image.webp'
@@ -11,6 +11,15 @@ import { GenreType } from "../../types/genre"
 import { Select, Space } from 'antd';
 import { useGenreContext } from "../../utils/hooks/useGenresContext"
 
+export type FormTrackDataType = {
+    audio: string,
+    image: string,
+    name: string,
+    genres: string,
+    privacityString: string,
+    albumName: string
+}
+
 export const AddMusicForm = () => {
 
     const [privacityState, setPrivacityState] = useState<boolean>(false);
@@ -18,6 +27,8 @@ export const AddMusicForm = () => {
     const [albumSelected, setAlbumSelected] = useState<string | null>(null)
     const [isFetching, setIsFetching] = useState<boolean>(false);
     const [genresSelectedError, setGenresSelectedError] = useState<boolean>(false);
+    const [image, setImage] = useState<string | null>(null);
+    const [audio, setAudio] = useState<string | null>(null);
     const { getAccessTokenSilently } = useAuth0()
     const { currentUser, setCurrentLoggedUser, setChangedUserData } = useUserContext();
     const { showGenre } = useGenreContext();
@@ -38,8 +49,8 @@ export const AddMusicForm = () => {
     const submitForm = async () => {
         if (!isFetching) {
             setIsFetching(true)
-            if (genresSelected.length > 0) {
-                toast.success('Track is uploading...');
+            if (genresSelected.length > 0 && image && audio) {
+                let loadingToast = toast.loading('Track is uploading...');
 
                 setGenresSelectedError(false)
                 const trackTitle = watch("title");
@@ -53,19 +64,20 @@ export const AddMusicForm = () => {
                 let trackPrivacy: string;
                 if (privacityState) trackPrivacy = "true"
                 else trackPrivacy = "false"
-                const trackAudioFileList = watch("audio");
-                const trackAudioFile = trackAudioFileList[0];
 
-                const trackImgFileList = watch("image");
-                const trackImgFile = trackImgFileList[0];
-
-                const formTrackData = new FormData();
-                formTrackData.append("upload_preset", "apollofy-track-addition")
-                formTrackData.append("audio", trackAudioFile);
-                formTrackData.append("image", trackImgFile);
-                formTrackData.append("name", trackTitle);
-                formTrackData.append("genres", trackGenres);
-                formTrackData.append("privacityString", trackPrivacy);
+                const trackAudioFile = audio;
+                const trackImgFile = image;
+                console.log(trackAudioFile);
+                console.log("-+-+-+-+-++-+-++-++");
+                console.log(trackImgFile);
+                const formTrackData: FormTrackDataType = {
+                    audio: trackAudioFile,
+                    image: trackImgFile,
+                    name: trackTitle,
+                    genres: trackGenres,
+                    privacityString: trackPrivacy,
+                    albumName: ""
+                }
 
                 let correctData: boolean = true;
                 if (albumSelected) {
@@ -73,24 +85,28 @@ export const AddMusicForm = () => {
                         //crearlo y linkearlo
                         const albumNameInput = watch("albumName");
                         if (albumNameInput && albumNameInput !== "") {
-                            formTrackData.append("albumName", watch("albumName"))
+                            formTrackData.albumName = albumNameInput;
                         } else {
                             correctData = false
                             toast.error("Add an album name.")
                         }
 
                     } else {
-                        formTrackData.append("albumName", albumSelected)
+                        formTrackData.albumName = albumSelected;
                     }
                 }
                 if (correctData) {
                     if (currentUser?.id === undefined) return;
-                    const updatedUser = await postTrack(getAccessTokenSilently, formTrackData, currentUser?.id);
+                    const trackPosted: TrackPosted = await postTrack(getAccessTokenSilently, formTrackData, currentUser?.id);
                     setChangedUserData(true)
-                    setCurrentLoggedUser(updatedUser);
 
-                    toast.success('Track uploaded successfully...')
-                    reset();
+                    if (trackPosted.res) {
+                        setCurrentLoggedUser(trackPosted.updatedUser);
+                        toast.success('Track uploaded successfully...', { id: loadingToast })
+                        reset();
+                    } else {
+                        toast.error('Error uploading track.', { id: loadingToast })
+                    }
                 }
             } else {
                 setGenresSelectedError(true)
@@ -103,15 +119,6 @@ export const AddMusicForm = () => {
     const handlePrivacity = () => {
         setPrivacityState(!privacityState)
     }
-    const handlePreview = () => {
-        const trackImgFileList = watch("image");
-        const trackImgFile = trackImgFileList[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-            setImagePreview(reader.result as string);
-        };
-        reader.readAsDataURL(trackImgFile as any);
-    }
 
     const handleChangeGenres = (value: string[]) => {
         setGenresSelected(value)
@@ -119,6 +126,56 @@ export const AddMusicForm = () => {
     const handleChangeAlbumName = (value: string) => {
         setAlbumSelected(value)
     };
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        if (e.target.files !== null) {
+            const file = e.target.files[0];
+            transformImage(file)
+        }
+    }
+
+    const handleAudioUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files !== null) {
+            const file = e.target.files[0];
+            transformAudio(file)
+        }
+    }
+    const transformImage = (image: File) => {
+        const reader: FileReader = new FileReader()
+        if (image) {
+            reader.onloadend = () => {
+                const base64String = (reader.result as string).replace('data:', '').replace(/^.+,/, '');
+                // console.log(base64String);
+                setImage(base64String)
+            }
+            reader.readAsDataURL(image)
+        } else {
+            setImage(null)
+        }
+    }
+
+    const transformAudio = (audio: File) => {
+        const reader: FileReader = new FileReader()
+        if (audio) {
+            reader.onloadend = () => {
+                const base64String = (reader.result as string).replace('data:', '').replace(/^.+,/, '');
+                // console.log(base64String);
+                setAudio(base64String)
+            }
+            reader.readAsDataURL(audio)
+        } else {
+            setAudio(null)
+        }
+    }
+
+    useEffect(() => {
+        if (!image) {
+            setImagePreview(placeholder)
+        } else {
+            setImagePreview(image)
+        }
+    }, [image])
 
 
     return (
@@ -132,7 +189,7 @@ export const AddMusicForm = () => {
 
             <div className="track-container">
                 <div className="track-img-container-preview">
-                    <img className='img-preview' src={imagePreview} alt="Preview img" />
+                    <img className='img-preview' src={image ? `data:image/png;base64,${image}` : imagePreview} alt="Preview img" />
                 </div>
             </div>
             <div className="add-track-img-container">
@@ -149,10 +206,7 @@ export const AddMusicForm = () => {
                             message: "Image is required"
                         }
                     })}
-                    onChange={(e) => {
-                        register("image").onChange(e);
-                        handlePreview();
-                    }}
+                    onChange={handleImageUpload}
                 />
 
             </div>
@@ -166,6 +220,7 @@ export const AddMusicForm = () => {
                             message: "Audio is required"
                         }
                     })}
+                    onChange={handleAudioUpload}
                 />
             </div>
             {errors.audio && <p className="music-form-error-audio">{errors.audio.message}</p>}

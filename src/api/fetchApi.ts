@@ -1,4 +1,5 @@
 
+import { FormTrackDataType } from "../components/addMusicForm/AddMusicForm";
 import { UserDataType } from "../components/navbar/NavBar";
 import { UserType } from "../components/profileChart/ProfileChart";
 import { AlbumType } from "../types/album";
@@ -28,18 +29,23 @@ export const fetchData = async (getToken: any, data: string): Promise<GenreType[
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
-export const postTrack = async (getToken: any, formTrackData: FormData, id: string) => {
+export type TrackPosted = {
+    res: boolean,
+    updatedUser: UserType
+}
+export const postTrack = async (getToken: any, formTrackData: FormTrackDataType, id: string): Promise<TrackPosted> => {
     const { VITE_API_URL: url } = import.meta.env;
     const token = await getToken();
     const response = await fetch(`${url}tracks/${id}`, {
         method: "POST",
         headers: {
-            authorization: `Bearer ${token}`
+            authorization: `Bearer ${token}`,
+            "Content-type": "application/json; charset=UTF-8"
         },
-        body: formTrackData
+        body: JSON.stringify(formTrackData)
     });
-    const dataFetched = response.json();
-    return dataFetched;
+    const dataFetched = await response.json() as UserType;
+    return { res: response.ok, updatedUser: dataFetched };
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
