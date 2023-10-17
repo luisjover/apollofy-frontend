@@ -6,7 +6,11 @@ export const LogoutButton = () => {
   const { t } = useTranslation();
 
   const handleLogout = () => {
-    logout();
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
   };
 
   return (
