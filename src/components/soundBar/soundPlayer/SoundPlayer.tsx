@@ -64,11 +64,11 @@ export const SoundPlayer: FC<SoundPlayerPropTypes> = ({ ...props }) => {
             {!expandedMenu ?
 
 
-                <div ref={playerContainer} className="player-container">
+                <div ref={playerContainer} className="player-container" data-testid="sound-bar">
                     <div className="player-heading" onClick={handleToggleMenu}>
                         <div className="player-info">
 
-                            <img className="track-image" src={props.currentTrack?.imageUrl} alt="" />
+                            <img className="track-image" src={props.currentTrack?.imageUrl} alt="track cover" />
                             <div className='track-info'>
                                 <p>{props.currentTrack?.name}</p>
                                 <p>{(props.currentTrack?.artists && props.currentTrack?.artists.length > 0) ? props.currentTrack.artists[0].name : ""}</p>
@@ -78,10 +78,10 @@ export const SoundPlayer: FC<SoundPlayerPropTypes> = ({ ...props }) => {
 
                         <div id="controls-icon" className="controls-container" >
                             {props.isPlaying ?
-                                <button style={{ border: 'none' }} className="controls-icon" onClick={handlePlayPause}>
+                                <button style={{ border: 'none' }} className="controls-icon" data-testid="pause-btn" onClick={handlePlayPause}>
                                     <BsFillPauseCircleFill id="controls-icon" className="controls-icon pause-icon" />
                                 </button> :
-                                <button style={{ border: 'none' }} className="controls-icon" onClick={handlePlayPause}>
+                                <button style={{ border: 'none' }} className="controls-icon" data-testid="play-btn" onClick={handlePlayPause}>
                                     <BsFillPlayCircleFill id="controls-icon" className="controls-icon play-icon" />
                                 </button>}
 
