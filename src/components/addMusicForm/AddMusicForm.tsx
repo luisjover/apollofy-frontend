@@ -176,7 +176,7 @@ export const AddMusicForm = () => {
     return (
 
 
-        <form className="add-music-form" onSubmit={handleSubmit(submitForm)}>
+        <form className="add-music-form" data-testid="add-form" onSubmit={handleSubmit(submitForm)}>
             <Toaster
                 position="top-center"
                 reverseOrder={false}
@@ -208,7 +208,7 @@ export const AddMusicForm = () => {
             {errors.image && <p className="music-form-error">{errors.image.message}</p>}
             <div className="track-audio-container">
                 <label htmlFor="track-audio-input" className="track-audio-label">{t('track')}</label>
-                <input id="track-audio-input" className="track-audio-input add-music-input hidden-input" type="file" accept="audio/mp3, audio/wav, audio/ogg" placeholder="Select your audio..."
+                <input id="track-audio-input" className="track-audio-input add-music-input hidden-input" type="file" accept="audio/mp3, audio/wav, audio/ogg" data-testid="audio-input" placeholder="Select your audio..."
                     {...register("audio", {
                         required: {
                             value: true,

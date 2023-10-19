@@ -1,4 +1,4 @@
-import { fireEvent, getByTestId, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { SoundPlayer } from "./SoundPlayer";
 import audio from "../../../assets/testAudio/audioTest.mp3";
 import { ListType } from "../../../types/enums.d";
