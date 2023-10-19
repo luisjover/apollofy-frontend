@@ -145,7 +145,7 @@ const SearchList = (props: SearchProps) => {
 
                             {filter === 'All' || filter === 'Tracks' ? (
                                 <>
-                                    {filteredTrack.length == 0 ? <></> : <h3>{t('tracksSearch')}</h3>}
+                                    {filteredTrack.length == 0 ? <></> : <h3 data-testid="tracks-title" >{t('tracksSearch')}</h3>}
                                     <div className='sl-result'>
                                         {filteredTrack.map((track, index) => {
                                             return (

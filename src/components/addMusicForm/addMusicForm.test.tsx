@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { AddMusicForm } from "./AddMusicForm";
-import { t } from "i18next";
 
 
 
