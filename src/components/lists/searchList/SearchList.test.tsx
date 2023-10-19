@@ -53,14 +53,12 @@ describe("When SearchList is rendered", () => {
         />)
     })
 
-    test("", () => {
+    test("if what is written on search input match retrieve data (tracks in this example), track search Title should be rendered", () => {
 
         vi.mock('react-router-dom', () => ({
             useNavigate: vi.fn(() => vi.fn),
             useLocation: vi.fn(() => vi.fn)
         }))
-
-
 
         const tracksSearchTitle = screen.getByTestId("tracks-title");
         expect(tracksSearchTitle).toBeDefined();
