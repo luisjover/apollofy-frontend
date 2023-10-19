@@ -1,9 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, getByTestId, render, screen } from "@testing-library/react";
 import { SoundPlayer } from "./SoundPlayer";
 import audio from "../../../assets/testAudio/audioTest.mp3";
 import { ListType } from "../../../types/enums.d";
 
-const isPlaying = false;
+
+let isPlaying = false;
 const setIsPlaying = vi.fn();
 const audioElement = audio;
 const currentTrack = {
@@ -27,9 +28,10 @@ const handleNextTrack = vi.fn();
 const loopActive = false;
 const setLoopActive = vi.fn();
 
-describe("When SoundBar is rendered", () => {
+describe("When SoundPlayer is rendered", () => {
     beforeEach(() => {
-        render(<audio src="../../../assets/testAudio/audioTest.mp3" />)
+
+
         render(<SoundPlayer
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
@@ -40,26 +42,91 @@ describe("When SoundBar is rendered", () => {
             handleNextTrack={handleNextTrack}
             loopActive={loopActive}
             setLoopActive={setLoopActive}
-
         />);
     })
 
     test("component should be displayed", () => {
 
-        expect(screen.getByTestId("sound-bar")).toBeDefined();
+        expect(screen.getByTestId("sound-player")).toBeDefined();
     });
 
     test("when play button is clicked, setIsPlaying should be called", () => {
 
+        // const useStateMock: any = (useState: any) => [useState, setStateMock];
+        // vi.spyOn(React, "useState").mockImplementation(useStateMock);
+
         const playButton = screen.getByTestId("play-btn");
         expect(playButton).toBeDefined();
         fireEvent.click(playButton);
-        expect(setIsPlaying).toHaveBeenCalled();
-        // const pauseButton = screen.getByTestId("pause-btn");
-        // expect(pauseButton).toBeDefined();
-        // fireEvent.click(pauseButton);
-        // expect(setIsPlaying).toHaveBeenCalled();
+        expect(setIsPlaying).toHaveBeenCalledWith(true);
+
+    });
+
+    test("when pause button is clicked, setIsPlaying should be called", () => {
+
+        render(<SoundPlayer
+            isPlaying={true}
+            setIsPlaying={setIsPlaying}
+            audioElement={audioElement}
+            currentTrack={currentTrack}
+            setCurrentTrack={setCurrentTrack}
+            handlePrevTrack={handlePrevTrack}
+            handleNextTrack={handleNextTrack}
+            loopActive={loopActive}
+            setLoopActive={setLoopActive}
+
+        />);
+
+        const pauseButton = screen.getByTestId("pause-btn");
+        expect(pauseButton).toBeDefined();
+        fireEvent.click(pauseButton);
+        expect(setIsPlaying).toHaveBeenCalledWith(false);
+    });
+
+    test("when player is clicked expanded menu should be opened", () => {
+
+
+        const togglePlayerBtn = screen.getByTestId("toggle-player-btn");
+        fireEvent.click(togglePlayerBtn);
+        const expandedPlayer = screen.getByTestId("expanded-player");
+        expect(expandedPlayer).toBeDefined();
+    });
+
+    test("next button should be displayed, and call handleNextTrack when clicked", () => {
+
+        const togglePlayerBtn = screen.getByTestId("toggle-player-btn");
+        fireEvent.click(togglePlayerBtn);
+        const nextBtn = screen.getByTestId("next-btn");
+        expect(nextBtn).toBeDefined();
+        fireEvent.click(nextBtn);
+        expect(handleNextTrack).toHaveBeenCalled();
+
+    });
+
+    test("prev button should be displayed, and call handlePrevTrack when clicked", () => {
+
+        const togglePlayerBtn = screen.getByTestId("toggle-player-btn");
+        fireEvent.click(togglePlayerBtn);
+        const prevBtn = screen.getByTestId("prev-btn");
+        expect(prevBtn).toBeDefined();
+        fireEvent.click(prevBtn);
+        expect(handlePrevTrack).toHaveBeenCalled();
+
+    });
+
+    test("close button should be displayed, and reduced player should be displayed when clicked", () => {
+
+        const togglePlayerBtn = screen.getByTestId("toggle-player-btn");
+        fireEvent.click(togglePlayerBtn);
+        const toggleCloseBtn = screen.getByTestId("close-expanded-btn");
+        expect(toggleCloseBtn).toBeDefined();
+        fireEvent.click(toggleCloseBtn);
+        const reducedPlayer = screen.getByTestId("sound-player");
+        expect(reducedPlayer).toBeDefined();
     });
 
 
 });
+
+
+

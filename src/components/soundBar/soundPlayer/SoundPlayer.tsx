@@ -64,8 +64,8 @@ export const SoundPlayer: FC<SoundPlayerPropTypes> = ({ ...props }) => {
             {!expandedMenu ?
 
 
-                <div ref={playerContainer} className="player-container" data-testid="sound-bar">
-                    <div className="player-heading" onClick={handleToggleMenu}>
+                <div ref={playerContainer} className="player-container" data-testid="sound-player">
+                    <div className="player-heading" data-testid="toggle-player-btn" onClick={handleToggleMenu}>
                         <div className="player-info">
 
                             <img className="track-image" src={props.currentTrack?.imageUrl} alt="track cover" />
@@ -99,8 +99,8 @@ export const SoundPlayer: FC<SoundPlayerPropTypes> = ({ ...props }) => {
 
                 :
 
-                <div ref={playerContainer} className="player-container expanded">
-                    <IoIosArrowDown className="close-player-icon" onClick={handleToggleMenu} />
+                <div ref={playerContainer} data-testid="expanded-player" className="player-container expanded">
+                    <IoIosArrowDown className="close-player-icon" data-testid="close-expanded-btn" onClick={handleToggleMenu} />
                     <div className="player-heading heading-expanded">
                         <img className="track-image image-big" src={props.currentTrack?.imageUrl} alt="" />
                         <div className="player-info info-expanded">
@@ -108,7 +108,7 @@ export const SoundPlayer: FC<SoundPlayerPropTypes> = ({ ...props }) => {
 
                             <div className='track-info'>
                                 <p className='expanded-title'>{props.currentTrack?.name}</p>
-                                <p className='expanded-subtitle'>{props.currentTrack?.artists ? props.currentTrack?.artists[0].name : ""}</p>
+                                {props.currentTrack?.artists && props.currentTrack?.artists?.length > 0 ? <p className='expanded-subtitle'>{props.currentTrack?.artists ? props.currentTrack?.artists[0].name : ""}</p> : <></>}
                             </div>
 
                         </div>
@@ -133,9 +133,9 @@ export const SoundPlayer: FC<SoundPlayerPropTypes> = ({ ...props }) => {
 
 
                         <div className="expanded-controls-container">
-                            <BsFillSkipStartCircleFill className="expanded-control-icon" onClick={props.handlePrevTrack} />
+                            <BsFillSkipStartCircleFill className="expanded-control-icon" data-testid="prev-btn" onClick={props.handlePrevTrack} />
                             {props.isPlaying ? <BsFillPauseCircleFill className="expanded-control-icon" onClick={handlePlayPause} /> : <BsFillPlayCircleFill className="expanded-control-icon" onClick={handlePlayPause} />}
-                            <BsFillSkipEndCircleFill className="expanded-control-icon" onClick={props.handleNextTrack} />
+                            <BsFillSkipEndCircleFill className="expanded-control-icon" data-testid="next-btn" onClick={props.handleNextTrack} />
 
                         </div>
                     </div>
