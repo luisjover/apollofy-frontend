@@ -29,8 +29,9 @@ const loopActive = false;
 const setLoopActive = vi.fn();
 
 describe("When SoundPlayer is rendered", () => {
-    beforeEach(() => {
 
+
+    beforeEach(() => {
 
         render(<SoundPlayer
             isPlaying={isPlaying}
@@ -51,9 +52,6 @@ describe("When SoundPlayer is rendered", () => {
     });
 
     test("when play button is clicked, setIsPlaying should be called", () => {
-
-        // const useStateMock: any = (useState: any) => [useState, setStateMock];
-        // vi.spyOn(React, "useState").mockImplementation(useStateMock);
 
         const playButton = screen.getByTestId("play-btn");
         expect(playButton).toBeDefined();

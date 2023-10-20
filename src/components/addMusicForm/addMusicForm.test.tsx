@@ -5,7 +5,7 @@ import { AddMusicForm } from "./AddMusicForm";
 
 
 
-describe("", () => {
+describe("When AddMusicForm is rendered", () => {
 
     beforeEach(() => {
         render(<AddMusicForm />)
