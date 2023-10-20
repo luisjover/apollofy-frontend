@@ -15,6 +15,7 @@ export const fetchData = async (getToken: any, data: string): Promise<GenreType[
 
     const { VITE_API_URL: url } = import.meta.env;
     const token = await getToken();
+    console.log(token);
     const response = await fetch(`${url}${data}`, {
         method: "GET",
         headers: {
