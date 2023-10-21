@@ -1,14 +1,18 @@
 .add-music-form {
-    height: calc(80vh - 160px);
+    height: calc(90vh - 161px);
     display: grid;
     text-align: center;
     align-items: center;
-    padding: 10px 30px 50px;
+    padding: 10px 30px 20px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 200px 15px 40px 20px 40px 20px 15px 40px 20px 40px 15px 30px 10px 60px;
     grid-column-gap: 0;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
 
-
+.add-music-form::-webkit-scrollbar {
+    display: none;
 }
 
 .track-container {
