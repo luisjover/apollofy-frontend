@@ -12,6 +12,8 @@ i18n
         resources: {
             en: {
                 translation: {
+                    english: 'English',
+                    spanish: 'Spanish',
                     logIn: 'Log In',
                     search: 'Search',
                     topArtists: 'Top Artists',
@@ -55,6 +57,8 @@ i18n
             },
             es: {
                 translation: {
+                    english: 'Inglés',
+                    spanish: 'Español',
                     logIn: 'Identifíquese',
                     search: 'Búsqueda',
                     topArtists: 'Top Artistas',

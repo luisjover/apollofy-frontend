@@ -10,8 +10,9 @@
 .trendlist-container {
     display: flex;
     flex-direction: column;
+    max-width: 1016px;
     gap: 16px;
-    padding: 18px;
+    padding: 18px 18px 0 18px;
 }
 
 .trend-type-title {
@@ -34,4 +35,14 @@
 
 .top-trend-items-container::-webkit-scrollbar {
     width: 0;
+}
+
+.white-space {
+    height: 81px;
+}
+
+@media only screen and (min-width: 1318px) {
+    .trendlist-container {
+        margin: 0 auto;
+    }
 }
