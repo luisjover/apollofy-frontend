@@ -3,7 +3,7 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-    width: 40vw;
+    min-width: 140px;
     padding: 20px;
     margin-right: 22.5px;
     border-radius: 10%;
@@ -15,11 +15,12 @@
     backdrop-filter: blur(6px);
 }
 
-.setting-menu-options-construction {
+.settings-menu-language {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .construction-icon {
@@ -39,10 +40,18 @@
     width: 5rem;
 }
 
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
 .english-language-flag-icon {
     width: 1.85rem;
     height: 1.85rem;
 }
+
 .spanish-language-flag-icon {
     width: 2rem;
     height: 2rem;
@@ -50,6 +59,7 @@
 
 .back-icon-language {
     color: #00ffa3;
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    cursor: pointer;
 }
