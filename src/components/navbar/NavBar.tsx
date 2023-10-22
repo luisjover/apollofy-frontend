@@ -163,16 +163,37 @@ export const NavBar = () => {
             {iconsNavbar.map((icon, index) => (
                 <div className="icon-navbar-container" key={index}>
                     <input id={icon.id} name="icon-navbar-bottom" type="radio" className="input-navbar-bottom" />
-                    <label htmlFor={icon.id} className="label-navbar-bottom">
+                    <label htmlFor={icon.id} className="label-navbar-bottom" onClick={() => handleIconsClicked(icon.path)}>
+
                         {index === 0 &&
-                            <div>
-                                <BiHomeAlt2 className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />
+                            <>
+                                <BiHomeAlt2 className="icons-navbar" />
                                 <h3 className='desktop-icon-title'>Home</h3>
-                            </div>}
-                        {index === 1 && <BiSearch className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
-                        {index === 2 && <MdLibraryAdd className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
-                        {index === 3 && <BiSolidHeart className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
-                        {index === 4 && <GiAlienStare className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
+                            </>}
+
+                        {index === 1 &&
+                            <>
+                                <BiSearch className="icons-navbar" />
+                                <h3 className='desktop-icon-title'>Search</h3>
+                            </>}
+
+                        {index === 2 &&
+                            <>
+                                <MdLibraryAdd className="icons-navbar" />
+                                <h3 className='desktop-icon-title'>Add Music</h3>
+                            </>}
+
+                        {index === 3 &&
+                            <>
+                                <BiSolidHeart className="icons-navbar" />
+                                <h3 className='desktop-icon-title'>Favourites</h3>
+                            </>}
+
+                        {index === 4 &&
+                            <>
+                                <GiAlienStare className="icons-navbar" />
+                                <h3 className='desktop-icon-title'>Profile</h3>
+                            </>}
 
                     </label>
                 </div>
