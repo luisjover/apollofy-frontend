@@ -164,7 +164,11 @@ export const NavBar = () => {
                 <div className="icon-navbar-container" key={index}>
                     <input id={icon.id} name="icon-navbar-bottom" type="radio" className="input-navbar-bottom" />
                     <label htmlFor={icon.id} className="label-navbar-bottom">
-                        {index === 0 && <BiHomeAlt2 className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
+                        {index === 0 &&
+                            <div>
+                                <BiHomeAlt2 className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />
+                                <h3 className='desktop-icon-title'>Home</h3>
+                            </div>}
                         {index === 1 && <BiSearch className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
                         {index === 2 && <MdLibraryAdd className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}
                         {index === 3 && <BiSolidHeart className="icons-navbar" onClick={() => handleIconsClicked(icon.path)} />}

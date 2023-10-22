@@ -34,3 +34,17 @@
     color: #f1f1f1;
 }
 
+
+@media only screen and (min-width: 835px) {
+    .navBar-bottom-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        width: 280px;
+        height: calc(100% - 81px);
+        align-items: flex-start;
+        position: absolute;
+        bottom: 81px;
+        left: 0;
+
+    }
+}

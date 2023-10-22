@@ -1,4 +1,5 @@
 
+import "../index.css";
 import { Outlet } from 'react-router-dom'
 import { NavBar } from '../components/navbar/NavBar'
 import { SoundBar } from '../components/soundBar/SoundBar'
@@ -26,7 +27,9 @@ export const Layout = () => {
                     <GenreContextProvider>
                       <UserLibraryListContextProvider>
                         <SearchDataContextProvider>
-                          <Outlet />
+                          <div className='page-content'>
+                            <Outlet />
+                          </div>
                           <SoundBar />
                           <NavBar />
                         </SearchDataContextProvider>
