@@ -1,5 +1,4 @@
-# APOLLOFY APP 📱
-
+# <a href="https://apollofy-frontend.vercel.app/">APOLLOFY</a> APP 👽📱
 
 <img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/8711d8e4-543f-495d-8155-0302338066e2" width="300" height="606"/>
 <img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/5e362842-2bb2-486e-a1a1-12abb9b0bdae" width="300" height="606"/>
@@ -33,6 +32,7 @@
 Apollofy project is a music app that resembles Spotify and Soundcloud, since it enables us to navigate though different songs,
 albums, playlists and artists while giving us the opportunity of adding our own tracks or albums and manage them.
 <br/>
+<br/>
 
 * Built with React and TypeScript, aside from other different libraries like react-hook-form, react-loading-skeleton, react-hot-toast, react-icons, react-router-dom...
 * It can be used in spanish or english (**i18next** library).
@@ -40,7 +40,7 @@ albums, playlists and artists while giving us the opportunity of adding our own 
 * **Dynamic** search and filter.
 * **Auth0** and Auth0 **JWT** for user authentication and route protection.
 * **Cloudinary** for media files managing (audio and image).
-* **Complex architecture** consisting on 2 databases: one done with <a href="https://github.com/luisjover/apollofy_hamilton_back">**MongoDB**</a> that stores the app data and a second one that keeps different user stats with <a href="https://github.com/ali-hourag/apollofy_stats_back">**PostgreSQL**</a>.
+* **Complex architecture** consisting on 2 databases: one done with **MongoDB** (<a href="https://github.com/luisjover/apollofy_hamilton_back">repo</a>) that stores the app data and a second one that keeps different user stats with **PostgreSQL** (<a href="https://github.com/ali-hourag/apollofy_stats_back">repo</a>).
 * Both of them build in Node.js + Express using Prisma ORM and other libraries such as **cors** and **morgan**.
 * Front-back interaction trough **REST API** allowing creation, reading, updating and deleting (**CRUD**), managing and preventing errors.
 * Unit Testing with **Jest** and **React-Testing-Library**.
@@ -68,6 +68,30 @@ albums, playlists and artists while giving us the opportunity of adding our own 
 
 ## Setup
 
-We are working on deploying it!!
+Project is deployed (<a href="https://apollofy-frontend.vercel.app/">APOLLOFY</a>), but if you want to run it locally:
 
-## Get APOLLOFY app and enjoy! 📱
+```
+git clone https://github.com/luisjover/apollofy-frontend
+```
+
+```
+npm install
+```
+
+```
+git clone https://github.com/luisjover/apollofy_hamilton_back
+```
+
+```
+npm install
+```
+
+- Create an account at Auth0 and Cloudinary
+- Create your own .env file 
+- Get referenced by the provided .env.example file
+
+```
+npm run dev in both repos
+```
+
+## Try <a href="https://apollofy-frontend.vercel.app/">APOLLOFY</a> app and enjoy! 👽📱
