@@ -82,7 +82,7 @@ export const SoundBar = () => {
     }, [isPlayingList, currentTrack])
 
     return (
-        <div>
+        <>
             <audio src={currentTrackInfo ? currentTrackInfo.audioUrl : ""} ref={audioElement} onLoadedMetadata={handleMetaDataLoad} onTimeUpdate={() => getTrackProgress()} />
 
             <SoundPlayer
@@ -96,7 +96,7 @@ export const SoundBar = () => {
                 loopActive={loopActive}
                 setLoopActive={setLoopActive}
             />
-        </div>
+        </>
     )
 }
 

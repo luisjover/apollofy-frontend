@@ -13,33 +13,57 @@
 
 ## Table of Content:
 
+- [Team Members](#team-members)
 - [About](#about)
 - [Technologies](#technologies)
 - [Setup](#setup)
 
+## Team Members
+<ul>
+  <li><a href="https://github.com/luisjover">Luis Jover</a></li>
+  <li><a href="https://github.com/ali-hourag">Ali Hourag</a></li>
+  <li><a href="https://github.com/Madpug2022">Matías Alaimo</a></li>
+  <li><a href="https://github.com/JaviGCK">Javier García</a></li>
+  <li><a href="https://https://github.com/ifdezluperena">Ivan Fernández</a></li>
+</ul>
+
+
 ## About
 
-Apollofy project is an app that resembles Spotify and Soundcloud, since it enables us to navigate though different songs,
-albums, playlists and artist while giving us the opportunity of adding our own tracks or albums.
+Apollofy project is a music app that resembles Spotify and Soundcloud, since it enables us to navigate though different songs,
+albums, playlists and artists while giving us the opportunity of adding our own tracks or albums and manage them.
 <br/>
-* Complex architecture consisting on 2 databases, one done with <a href="https://github.com/ali-hourag/apollofy_hamilton_back">MongoDB</a> that stores different the app data and another one that keeps different stats with <a href="https://github.com/ali-hourag/apollofy_stats_back">PostgreSQL</a> .
-* It can be used in spanish or english (i18next library).
-* Done with React and TypeScript, aside from other different libraries like react-hook-form, react-loading-skeleton...
-* Auth0 for authentication and Cloudinary for image and audio storage.
 
-<a href="https://drive.google.com/file/d/1rs4g8KltTViM1sAjnO8LtP6VqGAi1GhY/view?usp=sharing">Click here to see  video demonstration of the app</a>
+* Built with React and TypeScript, aside from other different libraries like react-hook-form, react-loading-skeleton, react-hot-toast, react-icons, react-router-dom...
+* It can be used in spanish or english (**i18next** library).
+* Great attention to **UX/UI**, **components interactions**, **best practices**, clean, maintainable and scalable code by **modularizing** and using **React contexts** and **reducers** as well as **hooks** such as useState, useEffect, useNavigate, useLocation and useParams, and **custom hooks**.
+* **Dynamic** search and filter.
+* **Auth0** and Auth0 **JWT** for user authentication and route protection.
+* **Cloudinary** for media files managing (audio and image).
+* **Complex architecture** consisting on 2 databases: one done with <a href="https://github.com/luisjover/apollofy_hamilton_back">**MongoDB**</a> that stores the app data and a second one that keeps different user stats with <a href="https://github.com/ali-hourag/apollofy_stats_back">**PostgreSQL**</a>.
+* Both of them build in Node.js + Express using Prisma ORM and other libraries such as **cors** and **morgan**.
+* Front-back interaction trough **REST API** allowing creation, reading, updating and deleting (**CRUD**), managing and preventing errors.
+* Unit Testing with **Jest** and **React-Testing-Library**.
+
 
 ## Technologies
 - HTML
 - CSS
+- JavaScript
 - TypeScript
 - React
 - Auth0
 - Cloudinary
 - AntDesign
 - Figma
-* This is the design that was done with Figma:
-  ![Screenshot 2023-10-17 at 06 12 53](https://github.com/ali-hourag/Apollofy-Hamilton/assets/131694498/51ef88b2-bf8c-49c9-abd9-64b8795d72c4)
+- Node.js
+- Express.js
+- Mongodb
+- PostgreSQL
+- Prisma
+- Vercel
+- Jest
+- React-Testing-Library
 
 
 ## Setup

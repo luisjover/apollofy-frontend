@@ -35,7 +35,10 @@ export const HomePage = () => {
     return (
         <section className="home-page-container">
             <div className="home-heading-container">
-                <img src={Logo} alt='App Logo' />
+                <div className="heading-logo-container">
+                    <img src={Logo} alt='App Logo' />
+                    <h1 className='heading-name'>apollo<span className='login-page-span'>fy</span></h1>
+                </div>
                 <span onClick={handleToggleSettingsMenu}>
                     <IoSettingsSharp className='home-setting-icon' />
                 </span>

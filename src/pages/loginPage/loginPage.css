@@ -1,3 +1,10 @@
+.login-page-section {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(4, 42, 6, 1) 29%, rgba(17, 92, 18, 0.958420868347339) 49%, rgba(4, 42, 6, 1) 69%, rgba(0, 0, 0, 0.958420868347339) 100%), linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 65%, rgba(17, 41, 5, 0.958420868347339) 82%, rgba(4, 25, 2, 0.958420868347339) 94%, rgba(2, 15, 1, 0.958420868347339) 100%);
+
+
+}
+
 .login-page-img-container {
     width: 100%;
     height: 100%;
@@ -23,11 +30,17 @@
 .login-page-title {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: absolute;
     top: 50%;
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     background-color: #000000;
+}
+
+.login-page-heading {
+    display: flex;
+    align-items: center;
 }
 
 .login-page-logo {
@@ -50,4 +63,12 @@
     font-weight: 900;
     line-height: normal;
     padding-left: 10px;
+}
+
+
+@media only screen and (min-width: 530px) {
+    .login-page-img-container {
+        width: 530px;
+        margin: 0 auto;
+    }
 }

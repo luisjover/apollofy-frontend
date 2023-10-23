@@ -33,3 +33,37 @@
     height: 2.87rem;
     color: #f1f1f1;
 }
+
+.desktop-icon-title {
+    display: none;
+}
+
+
+@media only screen and (min-width: 835px) {
+
+    .navBar-bottom-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 280px;
+        height: calc(100% - 81px);
+        position: absolute;
+        bottom: 81px;
+        left: 0;
+        padding: 20px 0 0 20px;
+        gap: 10px;
+
+    }
+
+    .label-navbar-bottom {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+    }
+
+    .desktop-icon-title {
+        display: block;
+    }
+}
