@@ -1,9 +1,9 @@
 # <a href="https://apollofy-frontend.vercel.app/">APOLLOFY</a> APP 👽📱
 <br/>
 <div align="center">
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/880bcf24-20e8-46f5-8a27-5bede74f2272" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/3d225169-bf82-472a-9910-c43df4748c05" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/1c96dddb-39c1-4fa4-926a-973198acd956" width="300" height="606"/>
+<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/880bcf24-20e8-46f5-8a27-5bede74f2272" width="250"/>
+<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/3d225169-bf82-472a-9910-c43df4748c05" width="250"/>
+<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/1c96dddb-39c1-4fa4-926a-973198acd956" width="250"/>
 </div>
 <br/>
 <div align="center">
