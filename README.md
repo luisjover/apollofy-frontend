@@ -1,12 +1,16 @@
 # <a href="https://apollofy-frontend.vercel.app/">APOLLOFY</a> APP 👽📱
+<br/>
+<div align="center>
+<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/880bcf24-20e8-46f5-8a27-5bede74f2272" width="300" height="606"/>
+<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/3d225169-bf82-472a-9910-c43df4748c05" width="300" height="606"/>
+<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/1c96dddb-39c1-4fa4-926a-973198acd956" width="300" height="606"/>
+</div>
+<br/>
+<div align="center">
+  <img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/c1176794-82c3-4dc6-8706-56114c1c8bb9"/>
+</div>
 
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/8711d8e4-543f-495d-8155-0302338066e2" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/5e362842-2bb2-486e-a1a1-12abb9b0bdae" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/7d1a62c8-47ce-407e-a5f3-0605c40ee51e" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/7ca7873e-1a97-4f3b-ad6c-330103a4f39d" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/60aa77eb-9f6c-4d9a-9964-89ee74aca86d" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/3c0eff1d-2d90-4425-ba03-dc381aea05d3" width="300" height="606"/>
-<img src="https://github.com/luisjover/apollofy-frontend/assets/131694498/09dd040c-cee8-4b32-8585-400dedc08b97" width="300" height="606"/>
+
 
 
 
