@@ -1,5 +1,5 @@
 .genreslist-container {
-    height: 85%;
+    height: calc(85% - 60px);
     width: 100%;
     padding: 1rem;
     gap: 1rem;
@@ -20,4 +20,14 @@
     font-weight: 500;
     font-size: 16px;
     margin-right: auto;
+}
+
+.white-space-genreslist {
+    height: 81px;
+}
+
+@media only screen and (min-height: 1000px) {
+    .white-space-genreslist {
+        height: 0;
+    }
 }

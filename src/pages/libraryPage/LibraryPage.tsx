@@ -106,7 +106,7 @@ export const LibraryPage = () => {
                         />
                     )}
                 </div>
-                <div className="white-space"></div>
+                <div className="white-space-libray-list"></div>
             </div>
         </section>
 

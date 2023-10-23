@@ -210,7 +210,7 @@ export const ListDetailPage = () => {
                                     />
                                 )
                             })}
-                            <div className='white-space'></div>
+                            <div className='white-space-list-detail'></div>
                         </div>
 
                     </div>

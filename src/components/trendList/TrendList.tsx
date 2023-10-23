@@ -32,7 +32,7 @@ export const TrendList = () => {
                         </div>
                     </div>
                 ))}
-                <div className="white-space"></div>
+                <div className="white-space-trendlist"></div>
             </div>
         </div>
     )

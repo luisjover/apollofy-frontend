@@ -31,18 +31,29 @@
     flex-direction: row;
     gap: 2rem;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .top-trend-items-container::-webkit-scrollbar {
     width: 0;
 }
 
-.white-space {
-    height: 81px;
+.white-space-trendlist {
+    height: 150px;
 }
 
 @media only screen and (min-width: 1318px) {
     .trendlist-container {
         margin: 0 auto;
+    }
+
+    .white-space-trendlist {
+        height: 81px;
+    }
+}
+
+@media only screen and (min-height: 950px) {
+    .white-space-trendlist {
+        height: 81px;
     }
 }

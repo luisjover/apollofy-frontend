@@ -97,3 +97,7 @@
 .list-detail-container-items::-webkit-scrollbar {
     width: 0;
 }
+
+.white-space-list-detail {
+    height: 162px;
+}

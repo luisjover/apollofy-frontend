@@ -18,7 +18,7 @@ export const GenresList = () => {
                         <GenreButton key={genre.id} id={genre.id} name={genre.name} imageUrl={genre.imageUrl} color={genre.color} tracks={genre.tracks} />
                     )
                 })}
-                <div className="white-space"></div>
+                <div className="white-space-genreslist"></div>
             </section>
         </>
     )

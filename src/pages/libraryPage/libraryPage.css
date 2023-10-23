@@ -29,11 +29,11 @@
     overflow-y: auto;
     padding-left: 25px;
     scroll-behavior: smooth;
-    height: calc(100vh - 240px);
+    height: calc(100dvh - 240px);
 }
 
-.library-items-container {
-    min-height: calc(100vh - 240px);
+.white-space-libray-list {
+    height: 162px;
 }
 
 .library-list-items-wrapper::-webkit-scrollbar {
